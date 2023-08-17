@@ -1,0 +1,241 @@
+/*
+box-sizing --> border-box permite que se tenga en cuenta content, padding, margin y border para
+setear propiedades (como width y height)
+*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+#product-overview {
+    background: url("./assets/freedom.jpg");
+    width: 100%;
+    height: 528px;
+    padding: 10px;
+}
+
+.section-title {
+    color: #2ddf5c;
+    text-align: center;
+}
+
+#product-overview h1 {
+    color: white;
+    font-family: 'Anton', sans-serif;
+}
+
+.plan {
+    background: #d5ffdc;
+    text-align: center;
+    padding: 16px;
+    margin: 8px;
+    display: inline-block;
+    width: 30%;
+    vertical-align: middle;
+}
+
+/*
+BOX-SHADOW: Agrega sombreado a un elemento.
+2px 2px 2px 2px -> Eje x, Eje y, blur, spread
+- Los ejes en positivo hacen referencia a la derecha y abajo respectivamente, en caso de ser negativos
+- corresponden a izquierda y arriba respectivamente. Por ejemplo: -2px -2px sería un sombrado con 2px a la izquierda y arriba.
+- Blur se refiere a cuantos px se genera un efecto blur sobre el sombreado.
+- Spread es que tan distanciado se encuentra el sombreado respecto a lo definido en los ejes.
+
+RGBA -> Forma de definir colores, que toma como último parámetro 'alpha', que es un porcentaje representando la
+transparencia del color aplicado.
+rgba(0, 0, 0, 0.5) por ejemplo aplica un color negro 50 % transparente.
+*/
+.plan--highlighted {
+    background: #19b84c;
+    color: white;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.plan__annotation {
+    padding: 8px;
+    background: white;
+    color: #19b84c;
+    border-radius: 8px;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.main-header {
+    width: 100%;
+    background-color: #2ddf5c;
+    padding: 8px 16px;
+}
+
+.plan__title {
+    color: #0e4f1f;
+}
+
+.plan__price {
+    color: #858585;
+}
+
+.plan--highlighted .plan__price {
+    color: #0e4f1f;
+}
+
+.plan--highlighted .plan__title {
+    color: white;
+}
+
+.plan__features {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.plan__features li {
+    margin: 8px;
+}
+
+/*
+INHERIT: Aplica los estilos heredados. Prioriza estilos heredados sobre los por defecto del navegador.
+*/
+
+.button {
+    background: #0e4f1f;
+    color: white;
+    font: inherit;
+    border: 1.5px solid #0e4f1f;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:hover,
+.button:active {
+    background: white;
+    color: #0e4f1f;
+}
+
+.button:focus {
+    outline: none;
+}
+
+#key-features {
+    background: #ff1b68;
+    margin-top: 80px;
+    padding: 16px;
+}
+
+#key-features .section-title {
+    color: white;
+    margin: 32px;
+
+}
+
+.key-feature__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#key-features li {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+}
+
+.key-feature__image {
+    background: #ffcede;
+    width: 128px;
+    height: 128px;
+    border: 2px solid #454545;
+    border-radius: 50%;
+    margin: auto;
+}
+
+#key-features li p {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+/*
+DISPLAY: Permite cambiar el comportamiento de un <Elemento /> --> block, inline, block inline
+  Inline --> <Elemento /> se colocan en la misma línea. padding y margin top-bottom, width y height no tienen efecto.
+  Block --> <Elemento /> se comporta como bloque, líneas separadas. Cada elemento toma el total del ancho de la página.
+  None --> No aparece en el Document Flow, pero si en el DOM.
+  Inline-Block --> Se pueden colocar elementos en misma línea, pero se les puede agregar padding y margin.
+*/
+
+.main-header > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.main-header__brand {
+    font-size: 22px;
+    color:#0e4f1f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main-nav {
+    display: inline-block;
+    text-align: right;
+    width: calc(100% - 74px);
+    vertical-align: middle;
+}
+
+.main-nav__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav__item {
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.main-nav__item a {
+    color: #0e4f1f;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 2px;
+}
+
+.main-nav__item--cta a {
+    color: white;
+    background-color: #ff1b68;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+/*
+Se pueden agrupar reglas, separando por ',', si se aplican las mismas propiedades
+a distintas clases/elementos.
+ */
+.main-nav__item a:hover,
+.main-nav__item a:active {
+    color: white;
+    border-bottom: 5px solid white;
+}
+
+.main-nav__item--cta a:hover,
+.main-nav__item--cta a:active {
+    color: #ff1b68;
+    background-color: white;
+    border: none;
+}
+
+
+/*
+Los pseudo-elementos '::before' y '::after' permiten agregar contenido a través
+de CSS.
+*/
+/* .main-nav__item a::after {
+    content: " (Link)";
+    color: red;
+} */
